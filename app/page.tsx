@@ -40,12 +40,12 @@ export default function Page() {
     const t = await fetchCurrentLocationCity();
     const currentCityName = t?.location?.name || 'Not found city';
     setCityName(currentCityName);
-    fetchData(cityName);
+    fetchData();
   }
 
-  const fetchData = async (name: string) => {
+  const fetchData = async () => {
     setIsLoading(true);
-    const weatherData = await getForecast(name);
+    const weatherData = await getForecast(cityName);
     setData(weatherData);
     console.log('Fetch Data');
   };
